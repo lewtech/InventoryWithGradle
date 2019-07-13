@@ -1,15 +1,22 @@
 package com.m3.training.inventory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Inventory implements IInventory{
+	Item item1;
 	
 	public static void main(String[] args) {
-		
+
 	}
 
+	private List<Item> items = new ArrayList<>();
 
 	//setup
 	public void loadItemData() {
-		
+		Item item1 = new Item("apple","fruit",10);
+		Item item2 = new Item("banana","fruit",10);
+		RecalledItem item3 = new RecalledItem("carrot", "vegetable", 10);
 	}
 	
 	
@@ -35,7 +42,7 @@ public class Inventory implements IInventory{
 	
 	// atomic methods
 	public void addItemToInventory(Item item) {
-		
+		items.add(item);
 	}
 
 	
