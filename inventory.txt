@@ -1,0 +1,54 @@
+﻿Inventory Software
+Use Junit, Mockito, Exceptions, and Interfaces in your work. This part of the requirment is not optional.
+
+
+Create your inventory software.
+
+
+Implement the following classes:
+Item: describes an item for sale with some form of id, some form of description, and a quantity on hand. Will you permit negative quantities?
+
+
+Inventory: a container for all the various items.
+
+
+Support the following use cases:
+
+
+A small business owner wants to generate orders by finding items in their inventory. If an inventory item is available for sale, it can be marked as sold by attaching it to an order. The quantity of items on the order should no longer reflect in the quantity on hand for that item in the inventory. 
+
+
+The owner wants to be able to add and remove items from their inventory. Adding an item means finding a wholesale supplier for the item, and listing it as being "available", regardless of how many are on hand. Removing means no longer making a item available for sale. 
+
+
+Once an item is present in the inventory, the owner wants to be able to increase or decrease the number of each item on hand. Increasing represents receiving a shipment of items for sale, or taking a return from a customer. Decreasing represents selling an item.
+
+
+Sometimes orders come in for a larger quantity of items than the inventory contains. For example an order may request 10 items but 5 are present in the inventory, or 0. At this point the owner needs to put that item on back order, and request more from some supplier. Your inventory system must find a way show the order as partially filled or defer to user until the order can be fully filled. Your software should show the owner what to request from the supplier and also show other clerks at the business when an item is a currently stocked item but is not available on hand.
+
+
+Sometimes items get recalled. If so, the item cannot be sold, even if there are quantities on hand. Once an item is recalled it can never be sold. Your system must keep track of recalled items.
+
+
+Sample order
+request item abc quantity 7
+scenario one: there are enough in the inventory
+Generate an order for 7 abc items and reduce the inventory
+
+
+scenario two: there are not enough. Let there be 2.
+-Generate an order for 2, and generate a pending order for 5, and update your inventory. Throw exceptions as needed.
+-or-
+-Generate a pending order for 7, and update the inventory to -5. Throw exceptions as needed.
+
+
+Sample recall
+item abc is recalled
+
+
+Sample order
+request item def quantity 7, which is in the inventory but is recalled. Reject this order. Throw exceptions as needed.
+
+
+Sample inventory management
+An attempt to remove abc from the inventory must be rejected as it is shown to be on recall.
