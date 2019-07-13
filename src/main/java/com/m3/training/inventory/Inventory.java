@@ -83,6 +83,10 @@ public class Inventory implements IInventory{
 	public void removeItem(Item item) {
 		
 	}
+	
+	public String toString() {
+		return String.format("{%s}", items);
+	}
 
 
 

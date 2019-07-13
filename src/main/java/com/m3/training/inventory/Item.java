@@ -90,4 +90,7 @@ public class Item {
 	public void setRefillAmount(Integer refillAmount) {
 		this.refillAmount = refillAmount;
 	}
-}
+	
+	public String toString() {
+		return String.format("{%s, %s, %s}", id, description, quantity);
+}}
