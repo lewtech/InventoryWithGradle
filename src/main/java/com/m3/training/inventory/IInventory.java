@@ -13,7 +13,7 @@ public interface IInventory {
 	void addItemToInventory(Item item);
 	void removeItemFromInventory(Item item);
 	void increaseQuantity(Item item, Integer quantity);
-	void decreaseQuantity(Item item, Integer quantity) throws Exception;
+	void sellItemThroughInventory(Item item, Integer quantity) throws Exception;
 	
 	
 	//complex methods
