@@ -73,7 +73,7 @@ public class Inventory extends ArrayList implements IInventory {
 	}
 
 
-	public void decreaseQuantity(Item item, Integer quantity) {
+	public void decreaseQuantity(Item item, Integer quantity) throws Exception {
 		item.decreaseFromQuantity(quantity);
 		
 	}

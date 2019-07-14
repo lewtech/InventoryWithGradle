@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 import org.mockito.Mock;
 import org.mockito.Mockito.*;
 import org.mockito.mock.*;
@@ -111,7 +112,7 @@ class InventoryTest {
 	
 	
 	@Test
-	void test_InventoryTest_decreaseQuantity() {
+	void test_InventoryTest_decreaseQuantity() throws Exception {
 		objectUnderTest.decreaseQuantity(item1, 1);
 		Integer expected = 0;
 		Integer actual = objectUnderTest.getItemQuantity(item1);
@@ -119,13 +120,16 @@ class InventoryTest {
 	}
 	
 	
-	@Test
-	void test_InventoryTest_decreaseQtyMoreThanItemQty() {
-		objectUnderTest.decreaseQuantity(item1, 100);
-		Integer expected = 0;
-		Integer actual = objectUnderTest.getItemQuantity(item1);
-		assertEquals(expected,actual);
-	}
+//	@Test
+//	void test_InventoryTest_decreaseQtyMoreThanItemQty() {
+//		objectUnderTest.decreaseQuantity(item1, 1);
+//		Integer expected = 0;
+//		Integer actual = objectUnderTest.getItemQuantity(item1);
+//		assertEquals(expected,actual);
+//		Executable closure = () -> objectUnderTest.decreaseQuantity(item1, 100);
+//		String msg = "error message";
+//		assertThrows(IllegalArgumentException.class,closure, msg);
+//	}
 	
 	
 

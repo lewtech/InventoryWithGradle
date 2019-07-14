@@ -1,6 +1,7 @@
 package com.m3.training.inventory;
 
 public class Item {
+	private static final Exception IllegalArgumentException = null;
 	public String id;
 	public String description;
 	public Integer quantity;
@@ -104,9 +105,27 @@ public class Item {
 	}
 
 
-	public Integer decreaseFromQuantity(Integer amount) {
+	public Integer decreaseFromQuantity(Integer amount)  {
+	
+			if ((quantity-amount) < 0 ) {
+				Integer backorder = quantity-amount;
+				quantity = 0;
+				putOnBackorder(backorder);
+				return quantity;
+			}
+		
+			
+		
 		quantity = quantity - amount;
 		return quantity;
+		
+	}
+
+
+	public void putOnBackorder(Integer backorder) {
+		onBackorder = true;
+		available = false;
+		
 		
 	}
 }
