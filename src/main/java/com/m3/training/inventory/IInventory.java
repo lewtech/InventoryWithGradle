@@ -3,8 +3,8 @@ package com.m3.training.inventory;
 public interface IInventory {
 
 	public void loadItemData();
-	public void loadItemDataFromSQL();
-	public void loadItemDataFromLocal();
+//	public void loadItemDataFromSQL();
+//	public void loadItemDataFromLocal();
 	public void generateOrders();
 	public void processOrders();
 

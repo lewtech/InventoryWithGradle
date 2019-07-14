@@ -10,7 +10,17 @@ class ItemTest {
 	private Item objectUnderTest;
 	
 	@BeforeEach void test_TestItem_testSetup() throws Exception{
-		objectUnderTest = new Item("apple", "fruit", 10);
+		objectUnderTest = new Item("apple", "new",15 );
+		
+	}
+	
+	@Test
+	void test_TestItem_constructor() {
+		objectUnderTest = new Item("carrot", "veggie",5);
+		String expected = "veggie";
+		String actual = objectUnderTest.getDescription();
+		assertEquals(expected,actual);
+		
 	}
 
 

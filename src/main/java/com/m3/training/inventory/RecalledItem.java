@@ -10,5 +10,9 @@ public class RecalledItem extends Item {
 		available = false;
 		
 	}
+	
+	public boolean getRecalled() {
+		return recalled;
+	}
 
 }

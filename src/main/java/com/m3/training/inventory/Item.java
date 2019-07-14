@@ -1,16 +1,17 @@
 package com.m3.training.inventory;
 
 public class Item {
-	private String id;
-	protected static String description;
-	protected static Integer quantity;
-	private boolean recalled;
-	private boolean available;
-	private Integer refillThreshold;
-	private Integer refillAmount;
+	public String id;
+	public String description;
+	public Integer quantity;
+	public boolean recalled;
+	public boolean available;
+	public Integer refillThreshold;
+	public Integer refillAmount;
+	public boolean onBackorder;
 	
 	
-	protected Item(String id, String description, Integer quantity) {
+	public Item(String id, String description, Integer quantity) {
 		
 		this.id = id;
 		this.description = description;
@@ -19,6 +20,7 @@ public class Item {
 		available = true;
 		refillThreshold = 10;
 		refillAmount = 10;
+		onBackorder = false;
 	}
 
 
@@ -91,6 +93,7 @@ public class Item {
 		this.refillAmount = refillAmount;
 	}
 	
+	@Override
 	public String toString() {
 		return String.format("{%s, %s, %s}", id, description, quantity);
 }}

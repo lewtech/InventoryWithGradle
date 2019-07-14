@@ -3,20 +3,17 @@ package com.m3.training.inventory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Inventory implements IInventory{
-	Item item1;
+import org.apache.commons.math3.util.MultidimensionalCounter.Iterator;
+
+public class Inventory extends ArrayList implements IInventory {
 	
-	public static void main(String[] args) {
+	
 
-	}
+	private List<Item> items = new ArrayList<Item>();
 
-	private List<Item> items = new ArrayList<>();
 
-	//setup
 	public void loadItemData() {
-		Item item1 = new Item("apple","fruit",10);
-		Item item2 = new Item("banana","fruit",10);
-		RecalledItem item3 = new RecalledItem("carrot", "vegetable", 10);
+
 	}
 	
 	
@@ -44,11 +41,31 @@ public class Inventory implements IInventory{
 	public void addItemToInventory(Item item) {
 		items.add(item);
 	}
+	
+	
+//	public Item findItem(Item item) {
+//		for (Item individualItem : items) 
+//			System.out.println(item.getId() + "  " + individualItem.getId());
+//			if(item.getId().contentEquals(individualItem.getId())) {
+//				return individualItem;
+//			}
+//			return null;
+//		}
+		
+	
 
 	
-	public void removeItemFromInventory(Item item){ 
-		
+	public void removeItemFromInventory(Item item){
+		java.util.Iterator<Item> itr = items.iterator();
+		while (itr.hasNext()) {
+			Item x = itr.next();
+			System.out.println(x.getId() + " " + x.getId());
+			if(item.getId().contentEquals(x.getId())) {
+			itr.remove();
+			}
+		}
 	}
+	
 	
 	
 	public void increaseQuantity(Item item, Integer quantity) {
@@ -61,6 +78,15 @@ public class Inventory implements IInventory{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
+	public List<Item> getInventory() {
+		
+		
+		return items;
+	}
+	
+	
 	
 	
 	
@@ -80,13 +106,21 @@ public class Inventory implements IInventory{
 	}
 	
 	
-	public void removeItem(Item item) {
-		
-	}
+
 	
+	@Override
 	public String toString() {
 		return String.format("{%s}", items);
 	}
+
+
+	@Override
+	public void removeItem(Item item) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 
 
 
