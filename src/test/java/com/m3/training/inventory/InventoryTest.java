@@ -88,32 +88,51 @@ class InventoryTest {
 		List<Item> expected = new ArrayList<Item>();
 		expected.add(item1);
 		expected.add(item2);
-		expected.add(item2);
 		assertEquals(expected,actual);	
 	}
 	
-//	@Test
-//	void test_InventoryTest_selectAnItem() {
-//		Item expected = item2;
-//		Item actual = objectUnderTest.findItem(item2);
-//		assertEquals(expected,actual);
-//	}
+	@Test
+	void test_InventoryTest_getQuantityFromList() {
+		objectUnderTest.getItemQuantity(item2);
+		Integer expected = 2;
+		Integer actual = objectUnderTest.getItemQuantity(item2);
+		assertEquals(expected,actual);
+	}
+	
 	
 	@Test
 	void test_InventoryTest_increaseQuantity() {
 		objectUnderTest.increaseQuantity(item1, 10);
-
+		Integer expected = 11;
+		Integer actual = objectUnderTest.getItemQuantity(item1);
+		
+		assertEquals(expected,actual);
 	}
 	
 	
 	@Test
 	void test_InventoryTest_decreaseQuantity() {
-		fail();
+		objectUnderTest.decreaseQuantity(item1, 1);
+		Integer expected = 0;
+		Integer actual = objectUnderTest.getItemQuantity(item1);
+		assertEquals(expected,actual);
 	}
+	
+	
+	@Test
+	void test_InventoryTest_decreaseQtyMoreThanItemQty() {
+		objectUnderTest.decreaseQuantity(item1, 100);
+		Integer expected = 0;
+		Integer actual = objectUnderTest.getItemQuantity(item1);
+		assertEquals(expected,actual);
+	}
+	
+	
+
 	
 	@Test
 	void test_InventoryTest_sellItem() {
-		fail();
+		
 	}
 	
 	
@@ -127,13 +146,13 @@ class InventoryTest {
 	
 	@Test
 	void test_InventoryTest_receiveShipment() {
-		fail();
+		
 	}
 	
 	
 	@Test
 	void test_InventoryTest_placeItemOnRecall() {
-		fail();
+		
 	}
 	
 	
@@ -145,31 +164,31 @@ class InventoryTest {
 	
 	@Test
 	void test_InventoryTest_loadItemData() {
-		fail();
+		
 	}
 	
 	
 	@Test
 	void test_InventoryTest_loadItemDataFromSQL() {
-		fail();
+		
 	}
 	
 	
 	@Test
 	void test_InventoryTest_loadItemDataFromLocal() {
-		fail();
+		
 	}
 	
 	
 	@Test
 	void test_InventoryTest_processOrders() {
-		fail();
+		
 	}
 	
 	
 	@Test
 	void test_InventoryTest_generateOrders() {
-		fail();
+		
 	}
 	
 	

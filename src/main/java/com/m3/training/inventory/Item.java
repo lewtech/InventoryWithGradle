@@ -93,7 +93,20 @@ public class Item {
 		this.refillAmount = refillAmount;
 	}
 	
+	public Integer addToQuantity(Integer amount) {
+		quantity = quantity + amount;
+		return quantity;
+	}
+	
 	@Override
 	public String toString() {
 		return String.format("{%s, %s, %s}", id, description, quantity);
-}}
+	}
+
+
+	public Integer decreaseFromQuantity(Integer amount) {
+		quantity = quantity - amount;
+		return quantity;
+		
+	}
+}

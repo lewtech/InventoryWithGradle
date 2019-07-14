@@ -20,5 +20,5 @@ public interface IInventory {
 	void receiveShipment(Item item);
 	void placeItemOnRecall(Item item);
 	void sellItem(Item item, Integer quantity);
-	void removeItem(Item item);
+	
 }

@@ -59,7 +59,6 @@ public class Inventory extends ArrayList implements IInventory {
 		java.util.Iterator<Item> itr = items.iterator();
 		while (itr.hasNext()) {
 			Item x = itr.next();
-			System.out.println(x.getId() + " " + x.getId());
 			if(item.getId().contentEquals(x.getId())) {
 			itr.remove();
 			}
@@ -69,13 +68,13 @@ public class Inventory extends ArrayList implements IInventory {
 	
 	
 	public void increaseQuantity(Item item, Integer quantity) {
-		// TODO Auto-generated method stub
+		item.addToQuantity(quantity);
 		
 	}
 
 
 	public void decreaseQuantity(Item item, Integer quantity) {
-		// TODO Auto-generated method stub
+		item.decreaseFromQuantity(quantity);
 		
 	}
 	
@@ -114,9 +113,19 @@ public class Inventory extends ArrayList implements IInventory {
 	}
 
 
-	@Override
-	public void removeItem(Item item) {
-		// TODO Auto-generated method stub
+
+
+
+	public Integer getItemQuantity(Item item) {
+		java.util.Iterator<Item> itr = items.iterator();
+		while (itr.hasNext()) {
+			Item x = itr.next();
+			if(item.getId().contentEquals(x.getId())) {
+				
+			
+			} return item.getQuantity();
+		} return item.getQuantity();
+		
 		
 	}
 	
