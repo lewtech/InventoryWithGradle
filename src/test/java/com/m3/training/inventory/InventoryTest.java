@@ -140,9 +140,8 @@ class InventoryTest {
 	}
 
 	@Test
-	void test_InventoryTest_sellItemOnRecall() {
+	void test_InventoryTest_sellItemOnRecallFail() {
 		recalledItem.setRecalled(true);
-
 		try {
 			objectUnderTest.sellItemThroughInventory(recalledItem, 2);
 			fail("Expected an IllegalArgumentException to be thrown");
@@ -155,12 +154,26 @@ class InventoryTest {
 
 	@Test
 	void test_InventoryTest_receiveShipment() {
-
+		Integer expected = item3.quantity +20;
+		objectUnderTest.increaseQuantity(item3, 20);
+		Integer actual = item3.quantity;
+		assertEquals(expected,actual);
 	}
+	
+	
+	@Test
+	void test_InventoryTest_overbuyItem() {
+		Integer expected = item3.quantity +20;
+		objectUnderTest.increaseQuantity(item3, 20);
+		Integer actual = item3.quantity;
+		assertEquals(expected,actual);
+	}
+	
+	
 
 	@Test
 	void test_InventoryTest_placeItemOnRecall() {
-
+		
 	}
 
 	// LOAD DATA
