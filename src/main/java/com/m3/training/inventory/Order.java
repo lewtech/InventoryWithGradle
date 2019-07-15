@@ -14,6 +14,7 @@ public class Order implements IOrder {
 		this.quantity = quantity;
 	}
 	
+	@Override
 	public void addToORders(Order order) {
 		orders.add(order);
 	}
@@ -42,6 +43,7 @@ public class Order implements IOrder {
 		return item;
 	}
 	
+	@Override
 	public Order sendOrder(Item item, Integer quantity) {
 		Order order = new Order(item, quantity);
 		return order;

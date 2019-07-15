@@ -23,6 +23,7 @@ public class Item implements IItem {
 		onBackorder = false;
 	}
 
+	@Override
 	public String getId() {
 		return id;
 	}
@@ -31,6 +32,7 @@ public class Item implements IItem {
 		this.id = id;
 	}
 
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -39,6 +41,7 @@ public class Item implements IItem {
 		this.description = description;
 	}
 
+	@Override
 	public Integer getQuantity() {
 		return quantity;
 	}

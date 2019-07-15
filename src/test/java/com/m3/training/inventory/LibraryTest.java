@@ -3,11 +3,9 @@
  */
 package com.m3.training.inventory;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
-
-import com.m3.training.inventory.Library;
-
-import static org.junit.Assert.*;
 
 public class LibraryTest {
     @Test public void testSomeLibraryMethod() {

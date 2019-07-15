@@ -1,17 +1,12 @@
 package com.m3.training.inventory;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import javax.annotation.meta.When;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Before;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.Mockito.*;
 import org.mockito.MockitoAnnotations;
-import org.mockito.mock.*;
 
 
 
