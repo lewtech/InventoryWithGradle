@@ -21,7 +21,6 @@ class MockedOrderTest {
 	Order mock;
 	
 
-
 	@Before
 	public void init() {
 	    MockitoAnnotations.initMocks(this);
@@ -50,6 +49,14 @@ class MockedOrderTest {
     	Mockito.when(order.getRecalledItem()).thenReturn(recalledItem);
 		Item expected = recalledItem;
 		Item actual = order.getRecalledItem();
+		assertEquals(expected,actual);
+	}
+	
+	
+	void test_MockedORderTest_getBackOrderItem() {
+    	Mockito.when(order.getBackorderedItem()).thenReturn(backOrderItem);
+		Item expected = backOrderItem;
+		Item actual = order.getBackorderedItem();
 		assertEquals(expected,actual);
 	}
 

@@ -56,7 +56,7 @@ class ItemTest {
 	@Test
 	void test_TestItem_putOnBackorder() throws Exception {
 		objectUnderTest.decreaseFromQuantity(100);
-		objectUnderTest.putOnBackorder(85);
+		objectUnderTest.putOnBackorder();
 		Boolean actual = objectUnderTest.onBackorder;
 		Boolean expected = true;
 		assertEquals(expected,actual);

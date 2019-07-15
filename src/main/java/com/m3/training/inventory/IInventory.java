@@ -2,11 +2,6 @@ package com.m3.training.inventory;
 
 public interface IInventory {
 
-	public void loadItemData();
-//	public void loadItemDataFromSQL();
-//	public void loadItemDataFromLocal();
-	public void generateOrders();
-	public void processOrders();
 
 	
 	// atomic methods
@@ -17,8 +12,8 @@ public interface IInventory {
 	
 	
 	//complex methods
-	void receiveShipment(Item item);
+	void receiveShipment(Item item, Integer quantity);
 	void placeItemOnRecall(Item item);
-	void sellItem(Item item, Integer quantity);
+
 	
 }

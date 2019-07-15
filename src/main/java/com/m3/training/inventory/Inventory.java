@@ -3,39 +3,21 @@ package com.m3.training.inventory;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.math3.util.MultidimensionalCounter.Iterator;
-
 public class Inventory extends ArrayList implements IInventory {
 
 	String msg;
 
 	private List<Item> items = new ArrayList<Item>();
+	private List<Item> recalledItems = new ArrayList<Item>();
 
-	public void loadItemData() {
-
-	}
-
-	public void loadItemDataFromSQL() {
-
-	}
-
-	public void loadItemDataFromLocal() {
-
-	}
-
-	public void processOrders() {
-
-	}
-
-	public void generateOrders() {
-
-	}
 
 	// atomic methods
+	@Override
 	public void addItemToInventory(Item item) {
 		items.add(item);
 	}
 
+	@Override
 	public void removeItemFromInventory(Item item) {
 		java.util.Iterator<Item> itr = items.iterator();
 		while (itr.hasNext()) {
@@ -46,10 +28,32 @@ public class Inventory extends ArrayList implements IInventory {
 		}
 	}
 
+	@Override
 	public void increaseQuantity(Item item, Integer quantity) {
 		item.addToQuantity(quantity);
 	}
 
+
+
+	public List<Item> getInventory() {
+		return items;
+	}
+
+	// complex methods
+	@Override
+	public void receiveShipment(Item item, Integer quantity) {
+		item.addToQuantity(quantity);
+		
+	}
+
+	@Override
+	public void placeItemOnRecall(Item item) {
+		item.setRecalled(true);
+	}
+
+
+	
+	@Override
 	public void sellItemThroughInventory(Item item, Integer quantity) {
 		if (item.onBackorder == true) {
 			String msg = "cannot sell backordered items";
@@ -57,27 +61,19 @@ public class Inventory extends ArrayList implements IInventory {
 		} else if (item.recalled == true) {
 			String msg = "cannot sell recalled items";
 			throw new IllegalArgumentException(msg);
+		} else if (item.getQuantity() < quantity){
+			Integer overBuyAmount = -item.getQuantity()+quantity;
+			item.putOnBackorder();
+			item.decreaseFromQuantity(quantity);
+			createBackorder(item, overBuyAmount);
 		} else {
 			item.decreaseFromQuantity(quantity);
 		}
 	}
 
-	public List<Item> getInventory() {
-
-		return items;
-	}
-
-	// complex methods
-	public void receiveShipment(Item item) {
-
-	}
-
-	public void placeItemOnRecall(Item item) {
-
-	}
-
-	public void sellItem(Item item, Integer quantity) {
-
+	private void createBackorder(Item item, Integer overBuyAmount) {
+		// GENERATE BACKORDER ORDER MOCKITO STUB
+		
 	}
 
 	@Override
@@ -97,5 +93,9 @@ public class Inventory extends ArrayList implements IInventory {
 		return item.getQuantity();
 
 	}
+
+
+
+
 
 }

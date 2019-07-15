@@ -1,6 +1,6 @@
 package com.m3.training.inventory;
 
-public class Item {
+public class Item implements IItem {
 	private static final Exception IllegalArgumentException = null;
 	public String id;
 	public String description;
@@ -96,9 +96,17 @@ public class Item {
 
 	}
 
-	public void putOnBackorder(Integer backorder) {
+	public void putOnBackorder() {
 		onBackorder = true;
 		available = false;
+	}
 
+	public Boolean getIsRecalled() {
+		
+		return isRecalled();
+	}
+	
+	public Boolean getOnBackordered() {
+		return onBackorder;
 	}
 }
